@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-br"><head>
+<meta charset="utf-8">
+<title>Portfólio · Raphael Bride</title>
+<style>
+@page { size: A4; margin: 24mm 22mm 22mm 22mm; }
+
+:root {
+  --ink: #141312;
+  --ink-2: #4a4744;
+  --mute: #8a8681;
+  --rule: #ece5db;
+  --rule-strong: #d9cfc0;
+  --paper: #ffffff;
+  --terra: #b8532a;         /* accent quente */
+  --terra-soft: #e8a686;
+  --forest: #2f5b46;        /* accent frio */
+  --cream: #faf5ec;
+}
+
+html, body { background: var(--paper); }
+body {
+  font-family: -apple-system, "Inter", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8mm 0 0 0;
+  -webkit-font-smoothing: antialiased;
+  counter-reset: section;
+  position: relative;
+}
+
+/* Barra decorativa no topo */
+body::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60mm;
+  height: 3px;
+  background: var(--terra);
+}
+
+/* Nome — grande, serif editorial */
+h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+  font-size: 52pt;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+  margin: 8mm 0 6px 0;
+  line-height: 0.95;
+}
+
+/* Kicker sob o nome — primeiro <p> */
+h1 + p {
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin: 0 0 26px 0;
+  font-weight: 600;
+}
+
+/* Parágrafo de abertura — segundo <p> */
+h1 + p + p {
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 14pt;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--ink-2);
+  margin: 0 0 20px 0;
+  max-width: 560px;
+}
+
+/* Régua elegante — mais decorativa */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, var(--terra) 0, var(--terra) 30px, var(--rule-strong) 30px, var(--rule-strong) 100%);
+  margin: 44px 0 34px 0;
+}
+
+/* Seções (h2) — nome, com número gigante em terracota à esquerda */
+h2 {
+  counter-increment: section;
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--ink);
+  margin: 0 0 4px 0;
+  line-height: 1.15;
+  position: relative;
+  padding-left: 62px;
+  min-height: 44pt;
+}
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: -6px;
+  font-family: "Iowan Old Style", Georgia, serif;
+  font-size: 34pt;
+  font-weight: 600;
+  color: var(--terra);
+  letter-spacing: -1px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: var(--terra);
+  margin: 12px 0 0 62px;
+  position: relative;
+  top: -0px;
+}
+
+/* Meta (papel · local · período) — <p> logo após h2 */
+h2 + p {
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 18px 0 18px 62px;
+  font-weight: 600;
+}
+
+/* Corpo dos parágrafos dentro da seção */
+p {
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 12px 0;
+}
+
+/* Sub-labels em negrito único ("Sobre a banda", "Comprovação") */
+p strong:only-child {
+  display: inline-block;
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 8.5pt;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin: 22px 0 6px 0;
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--terra-soft);
+}
+
+/* Listas */
+ul {
+  margin: 8px 0 14px 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  position: relative;
+  padding: 5px 0 5px 22px;
+  color: var(--ink-2);
+  font-size: 10.5pt;
+  line-height: 1.55;
+}
+li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 8px;
+  height: 2px;
+  background: var(--terra);
+}
+
+/* Links — sublinhado colorido offset */
+a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--terra-soft);
+  font-weight: 500;
+}
+
+/* Pendências */
+em {
+  color: var(--mute);
+  font-style: italic;
+}
+
+strong { color: var(--ink); font-weight: 600; }
+
+/* Imagens: grid de 3 lado a lado, moldura */
+p:has(> img:only-child) {
+  display: inline-block;
+  margin: 12px 6px 12px 0;
+  width: 32%;
+  vertical-align: top;
+}
+p:has(> img:only-child) + p:has(> img:only-child) {
+  margin-left: 0;
+}
+p:has(> img:only-child) img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule-strong);
+  padding: 4px;
+  background: var(--cream);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Assinatura final (rodapé implícito) — mantém compacto */
+h2 + p + p + p + p:last-child { margin-bottom: 0; }
+</style>
+</head><body>
+<h1>Raphael Bride</h1>
+<p>Músico · Instrumentista</p>
+<p>Vinte anos tocando. Comecei no forró tradicional, passei pela cena
+autoral da serra fluminense e continuo circulando por formações que
+me atravessam. É esse chão de palco que sustenta o produtor que sou
+hoje: sei o que um músico precisa antes de subir.</p>
+<blockquote>
+<p>Os itens abaixo estão listados em <strong>ordem indicativa</strong>. Os
+períodos exatos de cada formação serão consolidados conforme
+registros forem localizados.</p>
+</blockquote>
+<hr />
+<h2>Forró de Cordas</h2>
+<p>Instrumentista · <em>período a confirmar</em></p>
+<p>Formação de forró tradicional.</p>
+<p><strong>Comprovação</strong></p>
+<ul>
+<li><em>Pendente: período exato de atuação, instrumento, registros, setlists.</em></li>
+</ul>
+<hr />
+<h2>Forró Sem Destino</h2>
+<p>Instrumentista · <em>período a confirmar</em></p>
+<p>Formação de forró tradicional.</p>
+<p><strong>Comprovação</strong></p>
+<ul>
+<li><em>Pendente: período exato de atuação, instrumento, registros, setlists.</em></li>
+</ul>
+<hr />
+<h2>Caxote</h2>
+<p>Instrumentista · Petrópolis / RJ · <em>período a confirmar</em></p>
+<p>Cena autoral da região serrana do Rio de Janeiro.</p>
+<p><strong>Comprovação</strong></p>
+<ul>
+<li><em>Pendente: período exato de atuação, instrumento, registros, setlists.</em></li>
+</ul>
+<hr />
+<h2>Outras formações e participações</h2>
+<p>Trajetória complementar em outros projetos e colaborações musicais ao
+longo dos vinte anos, a serem incorporados a esta lista.</p>
+<p><strong>Comprovação</strong></p>
+<ul>
+<li><em>Pendente: lista consolidada das demais formações, com período e
+  contexto de cada uma.</em></li>
+</ul>
+</body></html>
