@@ -223,6 +223,58 @@ img {
 /* Assinatura final (rodapé implícito) — mantém compacto */
 h2 + p + p + p + p:last-child { margin-bottom: 0; }
 
+/* ============================================================
+   PAGE BREAK CONTROL (impressão / PDF)
+   Evita órfãos, mantém rótulos com o conteúdo, agrupa imagens
+   ============================================================ */
+
+/* Cabeçalhos nunca ficam sozinhos no fim de página */
+h1, h2, h3 {
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Linha de meta (papel · local · período) gruda no h2 */
+h2 + p {
+  page-break-before: avoid;
+  break-before: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* Rótulos em bold único ("Comprovação", "Registros...", "Declaração
+   institucional", "Ações realizadas") ficam com o que vem depois */
+p:has(> strong:only-child) {
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Imagens individuais nunca partem no meio */
+p:has(> img:only-child) {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Imagens em sequência (grid 3–4 lado a lado) ficam juntas no
+   mesmo bloco — nunca começa nova página no meio de um grupo */
+p:has(> img:only-child) + p:has(> img:only-child) {
+  page-break-before: avoid;
+  break-before: avoid;
+}
+
+/* Itens de lista não se dividem no meio */
+li {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Controle de viúvas/órfãs em parágrafos longos */
+p { orphans: 3; widows: 3; }
+
 /* Botão flutuante de download — só na tela, some no PDF */
 .download-btn {
   position: fixed;
