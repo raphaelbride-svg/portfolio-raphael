@@ -222,8 +222,37 @@ img {
 
 /* Assinatura final (rodapé implícito) — mantém compacto */
 h2 + p + p + p + p:last-child { margin-bottom: 0; }
+
+/* Botão flutuante de download — só na tela, some no PDF */
+.download-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: var(--terra);
+  color: #ffffff !important;
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 9.5pt;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  border: none !important;
+  z-index: 100;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  transition: background 0.15s, transform 0.15s;
+}
+.download-btn:hover {
+  background: var(--forest);
+  transform: translateY(-1px);
+}
+@media print {
+  .no-print { display: none !important; }
+}
 </style>
 </head><body>
+<a class="no-print download-btn" href="produtor.pdf" download>↓ Baixar PDF</a>
 <h1>Raphael Bride</h1>
 <p>Produtor cultural · Produtor executivo</p>
 <p>Vinte anos entre bastidor e palco. Passei pelas turnês de São João no

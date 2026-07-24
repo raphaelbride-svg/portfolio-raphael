@@ -119,6 +119,28 @@ h1 {
   border-bottom: 1.5px solid var(--terra);
   padding-bottom: 2px;
 }
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.card .pdf-link {
+  font-family: -apple-system, "Inter", sans-serif;
+  font-size: 8.5pt;
+  color: var(--mute);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule-strong);
+  padding-bottom: 1px;
+}
+.card .pdf-link:hover { color: var(--terra); border-bottom-color: var(--terra); }
+
 .footer {
   margin-top: 60px;
   padding-top: 20px;
@@ -141,7 +163,7 @@ h1 {
   </p>
 
   <div class="grid">
-    <a class="card" href="produtor.html">
+    <div class="card">
       <div class="num">01</div>
       <div class="title">Produção</div>
       <div class="sub">Cultural · Executiva · Musical</div>
@@ -149,10 +171,13 @@ h1 {
         Turnês de São João no Nordeste, direção executiva de instituto
         socioambiental, produção de artistas independentes no Rio.
       </p>
-      <span class="arrow">Ver portfólio →</span>
-    </a>
+      <div class="card-actions">
+        <a class="arrow" href="produtor.html">Ver portfólio →</a>
+        <a class="pdf-link" href="produtor.pdf" download>↓ Baixar PDF</a>
+      </div>
+    </div>
 
-    <a class="card" href="musico.html">
+    <div class="card">
       <div class="num">02</div>
       <div class="title">Música</div>
       <div class="sub">Instrumentista · 20+ anos</div>
@@ -160,8 +185,11 @@ h1 {
         Do forró tradicional à cena autoral da serra fluminense. Um
         chão de palco que sustenta o produtor.
       </p>
-      <span class="arrow">Ver portfólio →</span>
-    </a>
+      <div class="card-actions">
+        <a class="arrow" href="musico.html">Ver portfólio →</a>
+        <a class="pdf-link" href="musico.pdf" download>↓ Baixar PDF</a>
+      </div>
+    </div>
   </div>
 
   <div class="footer">
